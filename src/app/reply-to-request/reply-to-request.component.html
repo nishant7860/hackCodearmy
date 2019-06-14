@@ -1,0 +1,52 @@
+
+
+<div *ngIf="show">
+<table text-align: center class="table table-striped" width="50%">
+  <thead>
+    <tr>
+
+      <th scope="col" class="ttl">Leave Requests Details</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">First Name</th>
+      <td>{{Fname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Last Name</th>
+      <td>{{Lname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Casual Leave Applied</th>
+      <td>{{Clapplied}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Sick Leave Applied</th>
+      <td>{{Slapplied}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Earned Leave Applied</th>
+      <td>{{Elapplied}}</td>
+    </tr>
+    <tr>
+      <th scope="row">From Date </th>
+      <td>{{FromDate}}</td>
+    </tr>
+    <tr>
+      <th scope="row">To Date </th>
+      <td>{{Todate}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Reason for Leave</th>
+      <td>{{reason}}</td>
+    </tr><br>
+    <div class="action-buttons">
+      <td><button class="btn info" (click)=applyLeave(LID,true)>Accept</button></td>
+      <td><button class="btn info" (click)=applyLeave(LID,false)>Reject</button></td>
+    </div>
+  </tbody>
+</table>
+</div>

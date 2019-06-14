@@ -1,0 +1,95 @@
+<form #newjoineeForm="ngForm" (ngSubmit)="saveEmployee(newjoinee)" novalidate >
+    <div class="col-md-10 col-md-offset-1">
+      <br><br>      
+      <div class="panel panel-default" id="newjoineeform">
+        <div class="panel-heading panel-heading-custom">
+          <h3 class="panel-title">REGISTER NEW JOINEE</h3>
+        </div>
+        <div class="panel-body">
+  
+          <div class="form-group" [class.has-success]="firstname.valid" [class.has-error]="firstname.invalid && firstname.touched">
+            <label for="firstname" class="control-label">First Name</label>
+            <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="firstname" name="firstname" [(ngModel)]="newjoinee.firstname" type="text" class="form-control" #firstname="ngModel">
+            <span class="help-block" *ngIf="!!firstname.errors?.required && !!firstname.touched">
+              First Name is required
+            </span>
+            <span class="help-block" *ngIf="!!firstname.errors?.pattern && !!firstname.touched">
+              Invalid First Name(Max of 20 characters only)
+            </span>            
+          </div>
+  
+          <div class="form-group" [class.has-success]="lastname.valid" [class.has-error]="lastname.invalid && lastname.touched">
+            <label for="lastname" class="control-label">Last Name</label>
+            <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="lastname" name="lastname" [(ngModel)]="newjoinee.lastname" type="text" class="form-control" #lastname="ngModel">
+            <span class="help-block" *ngIf="!!lastname.errors?.required && !!lastname.touched">
+              Last Name is required
+            </span>
+            <span class="help-block" *ngIf="!!lastname.errors?.pattern && !!lastname.touched">
+              Invalid Last Name(Max of 20 characters only)
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-success]="email.valid" [class.has-error]="email.invalid && email.touched">
+            <label for="email" class="control-label">Email</label>
+            <input required pattern="^[ a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nineleaps)\.com$" id="email" name="email" [(ngModel)]="newjoinee.email" type="text" class="form-control" #email="ngModel" autocomplete="off">
+            <span class="help-block" *ngIf="!!email.errors?.required && !!email.touched">
+              Email is required
+            </span>
+            <span class="help-block" *ngIf="!!email.errors?.pattern && !!email.touched">
+              Email is invalid
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-success]="phonenumber.valid" [class.has-error]="phonenumber.invalid && phonenumber.touched">
+            <label for="phonenumber" class="control-label">Phone Number</label>
+            <input required pattern="^[6-9]\d{9}$" id="phonenumber" name="phonenumber" [(ngModel)]="newjoinee.phonenumber" type="text" class="form-control" #phonenumber="ngModel">
+            <span class="help-block" *ngIf="!!phonenumber.errors?.required && !!phonenumber.touched">
+              Phone number is required
+            </span>
+            <span class="help-block" *ngIf="!!phonenumber.errors?.pattern && !!phonenumber.touched">
+              Phone number is invalid
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-success]="dateofjoining.valid" [class.has-error]="dateofjoining.invalid && dateofjoining.touched">
+            <label for="dateofjoining" class="control-label">Date of Joining</label>
+            <input required id="dateofjoining" name="dateofjoining" [(ngModel)]="newjoinee.dateofjoining" type="text" placement="top" [maxDate]="maxDate" [minDate]="minDate" class="form-control" #dateofjoining="ngModel" autocomplete="off"
+            bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }">
+            <span class="help-block" *ngIf="dateofjoining.invalid && dateofjoining.touched">
+              DOJ is required
+            </span>
+          </div>
+  
+          <!-- <div class="form-group" [class.has-success]="role.valid" [class.has-error]="role.invalid && role.touched">
+            <label for="role" class="control-label">Role / Designation</label>
+            <select required style="height: auto;" id="role" width="30rem" name="role" [(ngModel)]="newjoinee.role" type="text" class="form-control" #role="ngModel">
+              <option value="1">Human Resourse(HR)</option>
+              <option value="2">Software Developer</option>
+              <option value="3">Management</option>
+              <option value="4">Finance</option>
+            </select>
+            <span class="help-block" *ngIf="role.invalid && role.touched">
+              Designation of the New Joinee is required
+            </span>
+          </div>
+          <br/> -->
+          <div class="form-group">
+            <mat-form-field class="example-full-width" >
+              <label for="role" class="control-label">Role / Designation</label>
+              <mat-select name="role" [(ngModel)]="newjoinee.role" class="form-control">
+                <mat-option *ngFor="let dsg of designation" [value]="dsg.DID">
+                  {{dsg.DName}}
+                </mat-option>
+              </mat-select>              
+            </mat-form-field>
+          </div>
+  
+          <div class="text-center">
+            <button width="50%" height="25%" type="submit" [disabled]="newjoineeForm.invalid" class="btn" >
+              SUBMIT
+            </button>&nbsp;&nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </form> 

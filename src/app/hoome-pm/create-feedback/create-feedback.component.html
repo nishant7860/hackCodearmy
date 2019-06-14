@@ -1,0 +1,99 @@
+<app-nav>
+  <form #feedbackForm="ngForm" (ngSubmit)="CreateFeedback(feedback)" novalidate>
+   
+ <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default" id="feedbackform">
+          <div class="panel-heading panel-heading-custom">
+          </div>
+
+          <div class="panel-body">
+
+
+          <div class="form-group" [class.has-success]="MName.valid"
+          [class.has-error]="MName.invalid && MName.touched">
+          <label for="MName" class="control-label">Meeting  Objective</label>
+          <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="MName" name="MName"
+            [(ngModel)]="feedback.MName" type="text" class="form-control" #MName="ngModel">
+          <span class="help-block" *ngIf="!!MName.errors?.required && !!MName.touched">
+            Meeting objective is required
+          </span>
+        </div>
+
+
+
+
+        <div class="form-group" [class.has-success]="Venue.valid"
+        [class.has-error]="Venue.invalid && Venue.touched">
+        <label for="MName" class="control-label">Select Venue</label>
+        <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="Venue" name="Venue"
+          [(ngModel)]="feedback.Venue" type="text" class="form-control" #Venue="ngModel">
+        <span class="help-block" *ngIf="!!Venue.errors?.required && !!Venue.touched">
+          Meeting objective is required
+        </span>
+      </div>
+
+        <!-- <div class="form-group" [class.has-success]="Venue.valid"
+        [class.has-error]="Venue.invalid && Venue.touched">
+        <label for="Venue" class="control-label">Venue </label>
+        <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="Venue" name="Venue"
+          [(ngModel)]="feedback.Venue" type="text" class="form-control" #Venue="ngModel">
+        <span class="help-block" *ngIf="!!Venue.errors?.required && !!#Venue.touched">
+          Venue is required
+        </span>
+      </div> -->
+
+
+            <div class="form-group">
+              <label for="email" class="control-label">Select Team Members</label>
+              
+              <ng-multiselect-dropdown (click)="fetchEmail()" [placeholder]="'Select Recievers'" [data]="listEmail"
+              [(ngModel)]="feedback.MeetingMembers"  name="MeetingMembers" [settings]="dropdownSettings"
+             (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" >
+           </ng-multiselect-dropdown>
+          
+            </div>
+
+  
+            <div class="text-center">
+              <button width="50%" height="25%" type="submit" [disabled]="feedbackForm.invalid" class="btn btn-custom">
+                SUBMIT
+              </button><br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/> <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/> <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/> <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+      <br/><br/><br/>
+    </form>
+  </app-nav>

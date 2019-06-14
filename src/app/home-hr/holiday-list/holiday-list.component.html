@@ -1,0 +1,42 @@
+
+<form #holidaylistForm="ngForm" (ngSubmit)="saveholiday(holidaylist)" class="mt-auto" novalidate >
+  <div class="col-md-10 col-md-offset-1"><br/><br/><br/>
+    <div class="panel panel-default" id="holidayform">
+      <div class="panel-heading panel-heading-custom">
+        <h3 class="panel-title" >Upload Holiday list</h3>
+      </div>
+      <br />
+        
+        <div class="form-group" [class.has-success]="date.valid" [class.has-error]="date.invalid && date.touched">
+          <label for="date" class="control-label">Holiday Date</label>
+          <input required id="date" name="date" [(ngModel)]="holidaylist.date" type="text" [minDate]="minDate" [maxDate]="maxDate" placement="bottom" class="form-control" #date="ngModel" autocomplete="off"
+          bsDatepicker [bsConfig]="datePickerConfig" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }">
+          <span class="help-block" *ngIf="date.invalid && date.touched">
+            Pick the date of Holiday
+          </span>
+        </div>
+      <br/>
+      <br/>
+
+      <div class="form-group" [class.has-success]="occasion.valid" [class.has-error]="occasion.invalid && occasion.touched">
+        <label for="occasion" class="control-label">Occasion :</label>
+        
+        <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="occasion" name="occasion" [(ngModel)]="holidaylist.occasion" type="text" class="form-control" #occasion="ngModel">
+      
+        <span class="help-block" *ngIf="!!occasion.errors?.required && !!occasion.touched">
+          Enter occasion of Holiday
+        </span>
+        <span class="help-block" *ngIf="!!occasion.errors?.pattern && !!occasion.touched">
+          Occasion cannot be blank
+        </span>
+      </div>
+
+      <div class="text-center"><br/>
+        <button type="submit"  [disabled]="holidaylistForm.invalid" class="btn">
+          Submit
+        </button><br/><br>
+    
+      </div>
+    </div>
+  </div>
+</form>

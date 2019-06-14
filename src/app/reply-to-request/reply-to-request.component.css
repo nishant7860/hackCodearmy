@@ -1,0 +1,49 @@
+.btn{
+  background-color: #21618C;
+  color: white;
+  flex-wrap:wrap;
+  border-radius: 0px;
+  text-align: center;
+  border: none;
+  padding: 10px 25px;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.btn:hover{
+  background-color: #335887 !important;
+  color: whitesmoke;
+}
+  .action-buttons{
+    position: relative;
+    float: left;
+    top: 41%;
+    left:59%;
+ 
+  }
+th {
+  font-family: "Carter One"; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 190; line-height: 26.4px;     
+}
+.ttl{
+  color:   #335887;
+  font-size: 20px;
+  font-weight: bold;
+  font-variant:small-caps;
+  position: relative;
+  float: left;
+  top: 41%;
+  left:59%;
+}
+@media (max-width:766px){
+  .ttl{
+    left:0;
+    
+  }
+  .action-buttons{
+    position: relative;
+    
+    top: 41%;
+    left:30%;
+ 
+  }
+}

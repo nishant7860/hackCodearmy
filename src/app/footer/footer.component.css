@@ -1,0 +1,29 @@
+
+   Multicoloured Hover Variations
+*/
+
+#social-fb:hover {
+    color: #3B5998;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #d34836;
+}
+#social-em:hover {
+    color: #f39c12;
+}
+.footer {
+    position:absolute;
+   
+    clear:both;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color:blue;
+    text-align: center;
+    height: 40px;
+    margin-top: -40px;
+  }

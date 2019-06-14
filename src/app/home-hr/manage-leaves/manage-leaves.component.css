@@ -1,0 +1,45 @@
+table, th, td {
+    padding: 15px;  
+    border: 1px solid #ddd;
+    text-align: center;
+
+}
+tr:hover {background-color: #f5f5f5;}
+th {
+    background-color:#4f6a7c;
+    color: white;
+    font-family: "Carter One"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 190; line-height: 26.4px;
+    
+  }
+
+  table
+{
+table-layout:fixed;
+}
+
+.btn{
+  background-color: #21618C;
+  color: white;
+  flex-wrap:wrap;
+  border-radius: 0px;
+  text-align: center;
+  border: none;
+  padding: 10px 25px;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.btn:hover{
+  background-color: #335887 !important;
+  color: whitesmoke;
+}
+mat-tab{
+  background-color: #21618C;
+}
+.greenClass{
+  color: green;
+}
+
+.redClass{
+  color: red;
+}

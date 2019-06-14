@@ -1,0 +1,181 @@
+<div class="lb1">
+  <mat-card class="card-containe">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>LEAVE BALANCE - 2019</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table align="center">
+        <tr>
+          <th>Leave Type</th>
+          <th>Balance</th>
+        </tr>
+        <tr>
+          <td>Casual Leaves</td>
+          <td>{{CLAvailable}}</td>
+        </tr>
+        <tr>
+          <td>Sick Leaves</td>
+          <td>{{SLAvailable}}</td>
+        </tr>
+        <tr>
+          <td>Earned Leaves</td>
+          <td>{{ELAvailable}}</td>
+        </tr>
+
+
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <mat-accordion multi="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="panel">
+        <mat-panel-title>
+          APPLY LEAVE
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Form to apply leave
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-button-toggle-group #group="matButtonToggleGroup">
+        <mat-button-toggle (click)="passValue()"value=1>Single Day Leave
+        </mat-button-toggle>
+        <mat-button-toggle (click)="passValue()"value=2>Multiple Day Leave
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <div *ngIf="group.value==1 ">
+        <form #ApplyLeaveForm="ngForm" (ngSubmit)="Applyleave(applyleave)" class="mt-auto" novalidate>
+
+          <div class="form-group" [class.has-success]="FromDate.valid"
+            [class.has-error]="FromDate.invalid && FromDate.touched">
+            <label for="FromDate" class="control-label">Date :</label>
+            <input (focus)="submit" (focus)="onclickfrom(applyleave)" (focusout)="submit" (focusout)="from(applyleave)" required id="FromDate" name="FromDate" [(ngModel)]="applyleave.FromDate" type="text"
+              placement="bottom" class="form-control" #FromDate="ngModel" bsDatepicker [bsConfig]="datePickerConfig" >
+            <span class="help-block" *ngIf="FromDate.invalid && FromDate.touched">
+              Pick the date of leave
+            </span>
+          </div><br />
+          <div class="form-group" [class.has-success]="reason.valid"
+            [class.has-error]="reason.invalid && reason.touched">
+            <label for="reason" class="control-label">Reason :</label>
+
+            <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="reason" name="reason"
+              [(ngModel)]="applyleave.reason" type="text" class="form-control" #reason="ngModel">
+
+            <span class="help-block" *ngIf="!!reason.errors?.required && !!reason.touched">
+              Enter Reason of Leave Application
+            </span>
+            <span class="help-block" *ngIf="!!reason.errors?.pattern && !!reason.touched">
+              Reason cannot be blank
+            </span>
+          </div><br /><br />
+          <div *ngIf="showProceed">
+            <button mat-button class="btn-primary" type="submit">Proceed</button>
+          </div>
+            </form>
+  
+            <div *ngIf="show">
+              <label>Select Cl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseCL()">-</mat-button-toggle>
+              <mat-button-toggle value="days" disabled>{{CLCount}}</mat-button-toggle>
+              <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseCL()">+</mat-button-toggle>
+            </mat-button-toggle-group><br /><br />
+            <label>Select Sl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseSL()">-</mat-button-toggle>
+              <mat-button-toggle value="days" disabled>{{SLCount}}</mat-button-toggle>
+              <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseSL()">+</mat-button-toggle>
+            </mat-button-toggle-group><br /><br />
+            <label>Select El:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseEL()">-</mat-button-toggle>
+              <mat-button-toggle value="days" disabled>{{ELCount}}</mat-button-toggle>
+              <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseEL()">+</mat-button-toggle>
+            </mat-button-toggle-group><br /><br />
+  
+          </div>
+          <div *ngIf="!showProceed">
+            <button mat-button (click)="submit" class="btn-primary" (click)="submit(applyleave)" >Apply</button>
+          </div>
+          </div>
+        <div *ngIf="group.value==2">
+            <form #ApplyLeaveForm="ngForm" (ngSubmit)="Applyleave(applyleave)" class="mt-auto" novalidate>
+
+
+                <div class="form-group" [class.has-success]="FromDate.valid"
+                [class.has-error]="FromDate.invalid && FromDate.touched">
+                <label for="FromDate" class="control-label">From Date :</label>
+                <input (focus)="submit" (focus)="onclickfrom(applyleave)" (focusout)="submit" (focusout)="from(applyleave)"  required id="FromDate" name="FromDate" [(ngModel)]="applyleave.FromDate" type="text"
+                  [minDate]="minDate" [maxDate]="maxDate" placement="bottom" class="form-control" #FromDate="ngModel"
+                  autocomplete="off" bsDatepicker [bsConfig]="datePickerConfig">
+                <span class="help-block" *ngIf="FromDate.invalid && FromDate.touched">
+                  Pick the date of leave
+                </span>
+              </div><br />
+    
+              <div *ngIf="showToDate">
+              <div class="form-group" [class.has-success]="ToDate.valid"
+              [class.has-error]="ToDate.invalid && ToDate.touched">
+              <label for="ToDate" class="control-label">To Date :</label>
+              <input  (onclick)="submit" (click)="validate(applyleave)"  required id="ToDate" name="ToDate" [(ngModel)]="applyleave.ToDate" type="text"
+                placement="bottom" class="form-control" #ToDate="ngModel"
+                autocomplete="off" bsDatepicker [bsConfig]="datePickerConfig1">
+              <span class="help-block" *ngIf="ToDate.invalid && ToDate.touched">
+    
+                Pick the date of leave
+              </span>
+            </div><br />
+
+
+          <div class="form-group" [class.has-success]="reason.valid"
+            [class.has-error]="reason.invalid && reason.touched">
+            <label for="reason" class="control-label">Reason :</label>
+
+            <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="reason" name="reason"
+              [(ngModel)]="applyleave.reason" type="text" class="form-control" #reason="ngModel">
+
+            <span class="help-block" *ngIf="!!reason.errors?.required && !!reason.touched">
+              Enter Reason of Leave Application
+            </span>
+            <span class="help-block" *ngIf="!!reason.errors?.pattern && !!reason.touched">
+              Reason cannot be blank
+            </span>
+          </div><br /><br />
+              </div>
+           <div *ngIf="showProceed">
+          <button mat-button class="btn-primary" type="submit">Proceed</button>
+        </div>
+          </form>
+
+          <div *ngIf="show">
+            <label>Select Cl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseCL()">-</mat-button-toggle>
+            <mat-button-toggle value="days" disabled>{{CLCount}}</mat-button-toggle>
+            <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseCL()">+</mat-button-toggle>
+          </mat-button-toggle-group><br /><br />
+          <label>Select Sl:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseSL()">-</mat-button-toggle>
+            <mat-button-toggle value="days" disabled>{{SLCount}}</mat-button-toggle>
+            <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseSL()">+</mat-button-toggle>
+          </mat-button-toggle-group><br /><br />
+          <label>Select El:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="sub" [disabled]="!isDecreaseValid" (click)="decreaseEL()">-</mat-button-toggle>
+            <mat-button-toggle value="days" disabled>{{ELCount}}</mat-button-toggle>
+            <mat-button-toggle value="add" [disabled]="!isValid" (click)="increaseEL()">+</mat-button-toggle>
+          </mat-button-toggle-group><br /><br />
+
+        </div>
+        <div *ngIf="!showProceed">
+          <button mat-button (click)="submit" class="btn-primary" (click)="submit(applyleave)" >Apply</button>
+         </div>
+        </div>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

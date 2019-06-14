@@ -1,0 +1,92 @@
+label{
+  font-family: "Carter One"; font-style: normal;font-size: 17px; font-variant: normal; font-weight: 190; line-height: 26.4px;
+}
+.btn{
+  background-color: #21618C;
+  color: white;
+  flex-wrap:wrap;
+  border-radius: 0px;
+  text-align: center;
+  border: none;
+  padding: 10px 25px;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.btn:hover{
+  background-color: #335887 !important;
+  color: whitesmoke;
+}
+table, th, td {
+    padding: 15px;  
+    border: 1px solid black;
+    text-align: center;
+
+}
+tr:hover {background-color: #f5f5f5;}
+th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  table
+{
+table-layout:fixed;
+}
+
+.panel.panel-primary{
+    margin-top: 70px;
+    height: 100%;
+    font-family: cursive;
+    font-weight: bold;
+  }
+  
+  .panel-body{
+    width:0%;
+    height: 500rem;
+    color: #21618C;
+  }
+    .panel-footer{
+
+    margin: 0 auto; width: 180px;
+  
+  }
+ 
+  .control-label{
+    color: #1f2833;
+    font-size: 100%;
+    font-family: serif;
+  
+  }
+  tr:hover {background-color: #f5f5f5;}
+  table, th, td {
+    border: px solid black;
+  }
+  
+  .panel-default > .panel-heading-custom {
+    background: #21618C; 
+    color: #fff; 
+    text-align:center;
+    font-size: 30px;
+    font-family: "cursive";
+  }
+  .inf{
+    color: #1f2833;
+  }
+
+  .form-group{
+    padding-right:15rem;
+    padding-left:15rem;
+    
+  }
+@media (max-width:415px){
+  .form-group {
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+    
+  }
+}
+
+  
+
+  

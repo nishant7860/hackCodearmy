@@ -1,0 +1,61 @@
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="Add New Project">
+    <br><br /><br>
+    <form #projectForm="ngForm" (ngSubmit)="saveProject(project)" novalidate>
+      <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default" id="projectform">
+          <div class="panel-heading panel-heading-custom">
+            <h3 class="panel-title">New Project Details</h3>
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-group" [class.has-success]="projectname.valid"
+              [class.has-error]="projectname.invalid && projectname.touched">
+              <label for="projectname" class="control-label">Project Name</label>
+              <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="projectname" name="projectname"
+                [(ngModel)]="project.projectname" type="text" class="form-control" #projectname="ngModel">
+              <span class="help-block" *ngIf="!!projectname.errors?.required && !!projectname.touched">
+                Project Name is required
+              </span>
+              <span class="help-block" *ngIf="!!projectname.errors?.pattern && !!projectname.touched">
+                Invalid Project Name(Max of 20 characters only)
+              </span>
+            </div>
+
+
+            <div class="form-group">
+              <mat-form-field class="example-full-width">
+                <label for="email" class="control-label">Project Manager</label>
+                <mat-select name="projectmanager" [(ngModel)]="project.projectmanager" class="form-control">
+                  <mat-option *ngFor="let email of listEmail" [value]="email.Email" (click)="focusOut(email)">
+                    {{email.Email}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group" *ngIf="flag==true">
+              <label for="teammembers" class="control-label">Team Members</label><br />
+              <ng-multiselect-dropdown (click)="fetchEmail()" [placeholder]="'Select Team Members'" [data]="listEmail"
+                [(ngModel)]="project.teammembers" name="teammembers" [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" ngModel required>
+              </ng-multiselect-dropdown>
+              <br>
+            </div>
+
+            <div class="text-center">
+              <button width="50%" height="25%" type="submit" [disabled]="projectForm.invalid" class="btn btn-custom">
+                SUBMIT
+              </button><br /><br />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+    <br/><br/><br/>
+  </mat-tab>
+
+
+</mat-tab-group>

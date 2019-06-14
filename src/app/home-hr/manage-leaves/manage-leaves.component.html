@@ -1,0 +1,33 @@
+<br/>
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="Pending Request">
+    <ng-template matTabContent>
+      <br />
+      <br />
+
+      <div class="table-responsive-sm" style="overflow-x:auto;">
+        <div align="center" *ngIf="ListPendingLeaves==null">
+
+          No Pending Leaves Exist
+          <br><br><br><br><br><br><br><br>
+        </div>
+        <app-sample-table></app-sample-table>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Cleared Request">
+    <ng-template matTabContent>
+      <br />
+      <br />
+
+      <div class="table-striped w-auto" style="overflow-x:auto;">
+        <div align="center" *ngIf="ListClearedLeaves==null">
+
+          No Cleared Leaves Exist
+          <br><br><br><br><br><br><br><br>
+        </div>
+        <app-data-table></app-data-table>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

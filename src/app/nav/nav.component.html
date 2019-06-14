@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [opened]="!(isHandset$ | async)"
+		[mode]="(isHandset$ | async)? 'over':'side'">
+		<mat-toolbar color="primary">Menu</mat-toolbar><br /><br /><br /><br/>
+		<mat-nav-list>
+
+			<a mat-list-item routerLink="home-hr"><i class="material-icons">home</i>&nbsp;&nbsp;Home</a>
+
+			<a mat-list-item routerLink="/contact-us"><i class="material-icons">call</i>&nbsp;&nbsp;Contact Us</a>
+			<a mat-list-item routerLink="display"><i class="material-icons">calendar_today</i>&nbsp;&nbsp;View Holiday List</a>
+			<div class="dropdown">
+				<a mat-list-item><i class="material-icons" id="dropdownMenuButton" data-toggle="dropdown">account_circle</i>&nbsp;&nbsp;Dashboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<i class="material-icons">expand_more</i></a>
+				
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<button class="dropdown-item" routerLink="/dashboard">
+						<i class="fa fa-user"></i>&nbsp;&nbsp;User Profile
+					</button>
+					<button class="dropdown-item" (click)="authService.SignOut()">
+						<i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log Out
+					</button>
+				</div>
+			</div>&nbsp;
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+				*ngIf="isHandset$ | async">
+				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+			</button>
+			<!-- <span><img src="assets/images/logo1.png" width="120px" height="47px"></span> -->
+			&nbsp;&nbsp;&nbsp;<span class="letter" data-letter="Nineleaps Portal" routerLink="/home-hr" >Nineleaps Portal</span>
+			<span class="spacer"></span>
+			
+
+				<a mat-list-item routerLink="home-hr"><i class="material-icons" data-toggle="popover" title="Home">home</i></a>&nbsp;
+				<div class="dropdown">
+					<a mat-list-item><i class="material-icons" id="dropdownMenuButton" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							account_circle
+						</i></a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<button class="dropdown-item" routerLink="/dashboard">
+							<i class="fa fa-user"></i>&nbsp;&nbsp;User Profile
+						</button>
+						<button class="dropdown-item" (click)="authService.SignOut()">
+							<i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log Out
+						</button>
+					</div>
+				</div>&nbsp;
+				<a mat-list-item routerLink="display"><i class="material-icons" data-toggle="popover" title="Holiday List">calendar_today</i>&nbsp;</a>
+				<a mat-list-item routerLink="/contact-us"><i class="material-icons" data-toggle="popover" title="Contact Us" data-placement="left">call</i></a>&nbsp;
+		</mat-toolbar>
+		<ng-content></ng-content>
+	</mat-sidenav-content>
+</mat-sidenav-container>

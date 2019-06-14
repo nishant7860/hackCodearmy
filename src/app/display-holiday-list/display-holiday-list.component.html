@@ -1,0 +1,13 @@
+<br>
+<br>
+<table align="center">
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let com of ListHoliday">
+
+    <td>{{com?.Date | date:'longDate'}}</td>
+    <td>{{com?.Description}}</td>
+  </tr>
+</table>

@@ -1,0 +1,91 @@
+<br />
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="Pending Leaves">
+    <ng-template matTabContent>
+      <br />
+      <br />
+
+      <div class="table-responsive-sm" style="overflow-x:auto;">
+        <div align="center" *ngIf="pendingLeaves==null">
+
+          No Pending Leaves Exist
+          <br><br><br><br><br><br><br><br>
+        </div>
+        <table align="center" *ngIf="pendingLeaves!=null">
+          <tr>
+
+            <th>Request</th>
+            <th>CL Applied</th>
+            <th>SL Applied</th>
+            <th>EL Applied</th>
+            <th>Reason</th>
+
+          </tr>
+          <tr *ngFor="let com of pendingLeaves">
+
+
+            <td>You have requested Leave From <u>{{ com.FromDate | date:'mediumDate'}}</u>
+              to <u>{{com.ToDate | date:'mediumDate'}}</u> </td>
+            <td>{{com.CLApplied}}</td>
+            <td>{{com.SLApplied}}</td>
+            <td>{{com.ELApplied}}</td>
+            <td>{{com.Reason}}</td>
+           
+            <br />
+          </tr>
+        </table>
+
+
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Cleared Leaves">
+    <ng-template matTabContent>
+      <br />
+      <br />
+
+      <div class="table-striped w-auto" style="overflow-x:auto;">
+        <div align="center" *ngIf="clearedLeaves==null">
+
+          No Cleared Leaves Exist
+          <br><br><br><br><br><br><br><br>
+        </div>
+
+
+        <table align="center" *ngIf="clearedLeaves!=null">
+          <tr>
+            
+            <th>First Name</th>
+  
+            <th>Last Name</th>
+            <th>CL Approved</th>
+            <th>SL Approved</th>
+            <th>EL Approved</th>
+            <th>From Date</th>
+            <th>ToDate</th>
+            <th>AppliedDate </th>
+            <th>Reason</th>
+            <th>Leave Status</th>
+          </tr>
+  
+          
+          <tr *ngFor ="let val of clearedLeaves">
+  
+            
+            <td>{{val.FName}}</td>
+            <td>{{val.LName}}</td>
+            <td>{{val.CLApproved}}</td>
+            <td>{{val.SLApproved}}</td>
+            <td>{{val.ELApproved}}</td>
+            <td>{{val.FromDate | date:'mediumDate'}}</td>
+            <td>{{val.ToDate | date:'mediumDate'}}</td>
+            <td>{{val.AppliedDate | date:'mediumDate'}}</td>
+            <td>{{val.Reason | titlecase}}</td>
+            <td [ngClass]="{greenClass: val.Status == true, redClass: val.Status == false}" >{{val.Status == true ?  'Accepted' :  'Rejected'}}</td>
+          </tr>
+        </table>
+
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

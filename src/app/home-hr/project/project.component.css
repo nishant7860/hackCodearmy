@@ -1,0 +1,52 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+label{
+  font-family: "Carter One"; font-style: normal;font-size: 17px; font-variant: normal; font-weight: 190; line-height: 26.4px;
+}
+mat-form-field {
+  width: 100%;
+}
+.panel-default{
+    margin-left: 1%;
+ }
+ 
+.form-group{
+    padding-right: 20rem;
+    padding-left:20rem;
+}
+
+button:hover{
+  background-color:#A569BD !important;
+  color: whitesmoke;
+}
+.panel-default > .panel-heading-custom {
+  background:#21618C; 
+  color: #fff; 
+  text-align:center;
+  font-size: 30px;
+  font-family: "cursive";
+}
+@media (max-width:415px){
+ .form-group {
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+  }
+}
+.btn{
+  background-color: #21618C;
+  color: white;
+  flex-wrap:wrap;
+  border-radius: 0px;
+  text-align: center;
+  border: none;
+  padding: 10px 25px;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.btn:hover{
+  background-color: #335887 !important;
+  color: whitesmoke;
+}

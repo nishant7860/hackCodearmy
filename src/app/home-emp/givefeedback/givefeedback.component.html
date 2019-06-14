@@ -1,0 +1,437 @@
+<!-- <div class="card card-shadow">
+  <div class="card-header">
+      <h2 class="header">Performance feedback</h2>
+  </div>
+  <form #feedback="ngForm" (ngSubmit)="giveFeedback(feedback)" novalidate>
+
+  <div class="card-default-form" >
+    <form action="" name="feedback" method="POST">
+      <div class="container-box">
+      </div>
+      <div class="card-header">
+          <h2 class="header">Performance Evaluation</h2>
+      </div>
+      <div class="container-box">
+        <table>
+        <tr>
+            <td><label class="form-label">Work Quality</label></td>     
+            <td><div class="stars">
+                <input  [(ngModel)]="feedback.wqstar" type="radio" name="wqstar" class="star-1" id="wqstar" value=1 #wqstar="ngModel" />
+                <label class="star-1" for="wq-star-1">1</label>
+                <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-2" id="wq-star-2" value=2 #wqstar="ngModel" />
+                <label class="star-2" for="wq-star-2">2</label>
+                <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-3" id="wq-star-3" value=3 #wqstar="ngModel" />
+                <label class="star-3" for="wq-star-3">3</label>
+                <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-4" id="wq-star-4" value=4 #wqstar="ngModel"/>
+                <label class="star-4" for="wq-star-4">4</label>
+                <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-5" id="wq-star-5" value=5 #wqstar="ngModel" />
+                <label class="star-5" for="wq-star-5">5</label>
+                <span></span>
+               </div>
+             </td>   
+           </tr>
+           <tr>
+              <td><label for="small" class="form-label">Communication</label></td>     
+              <td><div class="stars">
+                  <input type="radio" name="com-star" class="star-1" id="com-star-1" />
+                  <label class="star-1" for="com-star-1">1</label>
+                  <input type="radio" name="com-star" class="star-2" id="com-star-2" />
+                  <label class="star-2" for="com-star-2">2</label>
+                  <input type="radio" name="com-star" class="star-3" id="com-star-3" />
+                  <label class="star-3" for="com-star-3">3</label>
+                  <input type="radio" name="com-star" class="star-4" id="com-star-4" />
+                  <label class="star-4" for="com-star-4">4</label>
+                  <input type="radio" name="com-star" class="star-5" id="com-star-5" />
+                  <label class="star-5" for="com-star-5">5</label>
+                  <span></span>
+                 </div>
+               </td>   
+             </tr>
+             <tr>
+                <td><label for="small" class="form-label">Technical Skills</label></td>     
+                <td><div class="stars">
+                    <input type="radio" name="ts-star" class="star-1" id="ts-star-1" />
+                    <label class="star-1" for="ts-star-1">1</label>
+                    <input type="radio" name="ts-star" class="star-2" id="ts-star-2" />
+                    <label class="star-2" for="ts-star-2">2</label>
+                    <input type="radio" name="ts-star" class="star-3" id="ts-star-3" />
+                    <label class="star-3" for="ts-star-3">3</label>
+                    <input type="radio" name="ts-star" class="star-4" id="ts-star-4" />
+                    <label class="star-4" for="ts-star-4">4</label>
+                    <input type="radio" name="ts-star" class="star-5" id="ts-star-5" />
+                    <label class="star-5" for="ts-star-5">5</label>
+                    <span></span>
+                   </div>
+                 </td>   
+               </tr>
+               <tr>
+                  <td><label for="small" class="form-label">Productivity</label></td>     
+                  <td><div class="stars">
+                      <input type="radio" name="pro-star" class="star-1" id="pro-star-1" value="1"/>
+                      <label class="star-1" for="pro-star-1">1</label>
+                      <input type="radio" name="pro-star" class="star-2" id="pro-star-2" value="2"/>
+                      <label class="star-2" for="pro-star-2">2</label>
+                      <input type="radio" name="pro-star" class="star-3" id="pro-star-3" value="3"/>
+                      <label class="star-3" for="pro-star-3">3</label>
+                      <input type="radio" name="pro-star" class="star-4" id="pro-star-4" value="4"/>
+                      <label class="star-4" for="pro-star-4">4</label>
+                      <input type="radio" name="pro-star" class="star-5" id="pro-star-5" value="5"/>
+                      <label class="star-5" for="pro-star-5">5</label>
+                      <span></span>
+                     </div>
+                   </td>   
+                 </tr>
+                 <tr>
+                    <td><label for="small" class="form-label">Attitude</label></td>     
+                    <td><div class="stars">
+                        <input type="radio" name="att-star" class="star-1" id="att-star-1" />
+                        <label class="star-1" for="att-star-1">1</label>
+                        <input type="radio" name="att-star" class="star-2" id="att-star-2" />
+                        <label class="star-2" for="att-star-2">2</label>
+                        <input type="radio" name="att-star" class="star-3" id="att-star-3" />
+                        <label class="star-3" for="star-3">3</label>
+                        <input type="radio" name="att-star" class="star-4" id="att-star-4" />
+                        <label class="star-4" for="att-star-4">4</label>
+                        <input type="radio" name="att-star" class="star-5" id="att-star-5" />
+                        <label class="star-5" for="att-star-5">5</label>
+                        <span></span>
+                       </div>
+                     </td>   
+                   </tr>
+                   <tr>
+                      <td><label for="small" class="form-label">Cooperation</label></td>     
+                      <td><div class="stars">
+                          <input type="radio" name="coo-star" class="star-1" id="coo-star-1" />
+                          <label class="star-1" for="coo-star-1">1</label>
+                          <input type="radio" name="coo-star" class="star-2" id="coo-star-2" />
+                          <label class="star-2" for="coo-star-2">2</label>
+                          <input type="radio" name="coo-star" class="star-3" id="coo-star-3" />
+                          <label class="star-3" for="coo-star-3">3</label>
+                          <input type="radio" name="coo-star" class="star-4" id="coo-star-4" />
+                          <label class="star-4" for="coo-star-4">4</label>
+                          <input type="radio" name="coo-star" class="star-5" id="coo-star-5" />
+                          <label class="star-5" for="coo-star-5">5</label>
+                          <span></span>
+                         </div>
+                       </td>   
+                     </tr>
+                     <tr>
+                        <td><label for="small" class="form-label">Creativity</label></td>     
+                        <td><div class="stars">
+                            <input type="radio" name="cre-star" class="star-1" id="cre-star-1" />
+                            <label class="star-1" for="cre-star-1">1</label>
+                            <input type="radio" name="cre-star" class="star-2" id="cre-star-2" />
+                            <label class="star-2" for="cre-star-2">2</label>
+                            <input type="radio" name="cre-star" class="star-3" id="cre-star-3" />
+                            <label class="star-3" for="cre-star-3">3</label>
+                            <input type="radio" name="cre-star" class="star-4" id="cre-star-4" />
+                            <label class="star-4" for="cre-star-4">4</label>
+                            <input type="radio" name="cre-star" class="star-5" id="cre-star-5" />
+                            <label class="star-5" for="cre-star-5">5</label>
+                            <span></span>
+                           </div>
+                         </td>   
+                       </tr>
+                       <tr>
+                          <td><label for="small" class="form-label">Takes Initiative</label></td>     
+                          <td><div class="stars">
+                              <input type="radio" name="tak-star" class="star-1" id="tak-star-1" />
+                              <label class="star-1" for="tak-star-1">1</label>
+                              <input type="radio" name="tak-star" class="star-2" id="tak-star-2" />
+                              <label class="star-2" for="tak-star-2">2</label>
+                              <input type="radio" name="tak-star" class="star-3" id="tak-star-3" />
+                              <label class="star-3" for="tak-star-3">3</label>
+                              <input type="radio" name="tak-star" class="star-4" id="tak-star-4" />
+                              <label class="star-4" for="tak-star-4">4</label>
+                              <input type="radio" name="tak-star" class="star-5" id="tak-star-5" />
+                              <label class="star-5" for="tak-star-5">5</label>
+                              <span></span>
+                             </div>
+                           </td>   
+                         </tr>
+                         <tr>
+                            <td><label for="small" class="form-label">Coworking Relation</label></td>     
+                            <td><div class="stars">
+                                <input type="radio" name="cow-star" class="star-1" id="cow-star-1" />
+                                <label class="star-1" for="cow-star-1">1</label>
+                                <input type="radio" name="cow-star" class="star-2" id="cow-star-2" />
+                                <label class="star-2" for="cow-star-2">2</label>
+                                <input type="radio" name="cow-star" class="star-3" id="cow-star-3" />
+                                <label class="star-3" for="cow-star-3">3</label>
+                                <input type="radio" name="cow-star" class="star-4" id="cow-star-4" />
+                                <label class="star-4" for="cow-star-4">4</label>
+                                <input type="radio" name="cow-star" class="star-5" id="cow-star-5" />
+                                <label class="star-5" for="cow-star-5">5</label>
+                                <span></span>
+                               </div>
+                             </td>   
+
+                           </tr>
+                           <tr>
+                              <td><label for="small" class="form-label">Dependability</label></td>     
+                              <td><div class="stars">
+                                  <input type="radio" name="dep-star" class="star-1" id="dep-dep-star-1" />
+                                  <label class="star-1" for="dep-dep-star-1">1</label>
+                                  <input type="radio" name="dep-star" class="star-2" id="dep-star-2" />
+                                  <label class="star-2" for="dep-star-2">2</label>
+                                  <input type="radio" name="dep-star" class="star-3" id="dep-star-3" />
+                                  <label class="star-3" for="dep-star-3">3</label>
+                                  <input type="radio" name="dep-star" class="star-4" id="dep-star-4" />
+                                  <label class="star-4" for="dep-star-4">4</label>
+                                  <input type="radio" name="dep-star" class="star-5" id="dep-star-5" />
+                                  <label class="star-5" for="dep-star-5">5</label>
+                                  <span></span>
+                                 </div>
+                               </td>   
+                             </tr>
+        </table>
+        <label class="form-comment">Comment</label><br>
+        <textarea ></textarea>
+       </div>
+       <button width="50%" height="25%" type="submit" click="giveFeedback(feedback)" class="btn btn-custom">
+        SUBMIT
+      </button><br /><br />
+      </form>
+  
+ </div> -->
+
+
+
+ <form #feedback="ngForm" (ngSubmit)="fillfeedback(feedback)" novalidate>
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default" id="projectform">
+      <div class="panel-heading panel-heading-custom">
+        <h3 class="panel-title">Fill Feedback</h3>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="form-group" [class.has-success]="Title.valid"
+          [class.has-error]="Title.invalid && Title.touched">
+          <label for="Title" class="control-label">Title</label>
+          <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="Title" name="Title"
+            [(ngModel)]="feedback.Title" type="text" class="form-control" #Title="ngModel">
+          <span class="help-block" *ngIf="!!Title.errors?.required && !!Title.touched">
+            Title is required
+          </span>
+         
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <label for="email" class="control-label">Select employee</label>
+            <mat-select name="employee" [(ngModel)]="feedback.employee" class="form-control">
+              <mat-option *ngFor="let email of listEmail" [value]="email.Email" (click)="focusOut(email)">
+                {{email.Email}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group" [class.has-success]="Venue.valid"
+          [class.has-error]="Venue.invalid && Venue.touched">
+          <label for="Venue" class="control-label">Venue</label>
+          <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="Title" name="Venue"
+            [(ngModel)]="feedback.Venue" type="text" class="form-control" #Venue="ngModel">
+          <span class="help-block" *ngIf="!!Venue.errors?.required && !!Venue.touched">
+            Venue is required
+          </span>
+         
+        </div>
+     
+        <table>
+          <tr>
+              <td><label class="form-label">Work Quality</label></td>     
+              <td><div class="stars">
+                  <input  [(ngModel)]="feedback.wqstar" type="radio" name="wqstar" class="star-1" id="wqstar" value=1 #wqstar="ngModel" />
+                  <label class="star-1" for="wq-star-1">1</label>
+                  <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-2" id="wq-star-2" value=2 #wqstar="ngModel" />
+                  <label class="star-2" for="wq-star-2">2</label>
+                  <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-3" id="wq-star-3" value=3 #wqstar="ngModel" />
+                  <label class="star-3" for="wq-star-3">3</label>
+                  <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-4" id="wq-star-4" value=4 #wqstar="ngModel"/>
+                  <label class="star-4" for="wq-star-4">4</label>
+                  <input [(ngModel)]="feedback.wqstar" type="radio" name="wq-star" class="star-5" id="wq-star-5" value=5 #wqstar="ngModel" />
+                  <label class="star-5" for="wq-star-5">5</label>
+                  <span></span>
+                 </div>
+               </td>   
+             </tr>
+             <tr>
+                <td><label for="small" class="form-label">Communication</label></td>     
+                <td><div class="stars">
+                    <input [(ngModel)]="feedback.comstar" type="radio" name="com-star" class="star-1" id="com-star-1" value=1 #comstar="ngModel"/>
+                    <label class="star-1" for="com-star-1">1</label>
+                    <input [(ngModel)]="feedback.comstar"type="radio" name="com-star" class="star-2" id="com-star-2" value=3 #comstar="ngModel"/>
+                    <label class="star-2" for="com-star-2">2</label>
+                    <input [(ngModel)]="feedback.comstar"type="radio" name="com-star" class="star-3" id="com-star-3" value=3 #comstar="ngModel"/>
+                    <label class="star-3" for="com-star-3">3</label>
+                    <input [(ngModel)]="feedback.comstar"type="radio" name="com-star" class="star-4" id="com-star-4" value=4 #comstar="ngModel"/>
+                    <label class="star-4" for="com-star-4">4</label>
+                    <input [(ngModel)]="feedback.comstar"type="radio" name="com-star" class="star-5" id="com-star-5" value=5 #comstar="ngModel"/>
+                    <label class="star-5" for="com-star-5">5</label>
+                    <span></span>
+                   </div>
+                 </td>   
+               </tr>
+               <tr>
+                  <td><label for="small" class="form-label">Technical Skills</label></td>     
+                  <td><div class="stars">
+                      <input [(ngModel)]="feedback.tsstar" type="radio" name="ts-star" class="star-1" id="ts-star-1" value=1 #tsstar="ngModel"/>
+                      <label class="star-1" for="ts-star-1">1</label>
+                      <input [(ngModel)]="feedback.tsstar" type="radio" name="ts-star" class="star-2" id="ts-star-2" value=2 #tsstar="ngModel"/>
+                      <label class="star-2" for="ts-star-2">2</label>
+                      <input [(ngModel)]="feedback.tsstar" type="radio" name="ts-star" class="star-3" id="ts-star-3" value=3 #tsstar="ngModel"/>
+                      <label class="star-3" for="ts-star-3">3</label>
+                      <input [(ngModel)]="feedback.tsstar" type="radio" name="ts-star" class="star-4" id="ts-star-4" value=4 #tsstar="ngModel"/>
+                      <label class="star-4" for="ts-star-4">4</label>
+                      <input [(ngModel)]="feedback.tsstar" type="radio" name="ts-star" class="star-5" id="ts-star-5" value=5 #tsstar="ngModel"/>
+                      <label class="star-5" for="ts-star-5">5</label>
+                      <span></span>
+                     </div>
+                   </td>   
+                 </tr>
+                 <tr>
+                    <td><label for="small" class="form-label">Productivity</label></td>     
+                    <td><div class="stars">
+                        <input [(ngModel)]="feedback.prostar" type="radio" name="pro-star" class="star-1" id="pro-star-1" value="1" value=1 #prostar="ngModel"/>
+                        <label class="star-1" for="pro-star-1">1</label>
+                        <input [(ngModel)]="feedback.prostar" type="radio" name="pro-star" class="star-2" id="pro-star-2" value="2" value=2 #prostar="ngModel"/>
+                        <label class="star-2" for="pro-star-2">2</label>
+                        <input [(ngModel)]="feedback.prostar" type="radio" name="pro-star" class="star-3" id="pro-star-3" value="3" value=3 #prostar="ngModel"/>
+                        <label class="star-3" for="pro-star-3">3</label>
+                        <input [(ngModel)]="feedback.prostar" type="radio" name="pro-star" class="star-4" id="pro-star-4" value="4" value=4 #prostar="ngModel"/>
+                        <label class="star-4" for="pro-star-4">4</label>
+                        <input [(ngModel)]="feedback.prostar" type="radio" name="pro-star" class="star-5" id="pro-star-5" value="5" value=5 #prostar="ngModel"/>
+                        <label class="star-5" for="pro-star-5">5</label>
+                        <span></span>
+                       </div>
+                     </td>   
+                   </tr>
+                   <tr>
+                      <td><label for="small" class="form-label">Attitude</label></td>     
+                      <td><div class="stars">
+                          <input [(ngModel)]="feedback.attstar" type="radio" name="att-star" class="star-1" id="att-star-1" value=1 #attstar="ngModel" />
+                          <label class="star-1" for="att-star-1">1</label>
+                          <input [(ngModel)]="feedback.attstar" type="radio" name="att-star" class="star-2" id="att-star-2" value=2 #attstar="ngModel"/>
+                          <label class="star-2" for="att-star-2">2</label>
+                          <input [(ngModel)]="feedback.attstar"  type="radio" name="att-star" class="star-3" id="att-star-3" value=3 #attstar="ngModel"/>
+                          <label class="star-3" for="star-3">3</label>
+                          <input [(ngModel)]="feedback.attstar" type="radio" name="att-star" class="star-4" id="att-star-4" value=4 #attstar="ngModel" />
+                          <label class="star-4" for="att-star-4">4</label>
+                          <input [(ngModel)]="feedback.attstar" type="radio" name="att-star" class="star-5" id="att-star-5" value=5 #attstar="ngModel"/>
+                          <label class="star-5" for="att-star-5">5</label>
+                          <span></span>
+                         </div>
+                       </td>   
+                     </tr>
+                     <tr>
+                        <td><label for="small" class="form-label">Cooperation</label></td>     
+                        <td><div class="stars">
+                            <input [(ngModel)]="feedback.coostar" type="radio" name="coo-star" class="star-1" id="coo-star-1" value=1 #coostar="ngModel"/>
+                            <label class="star-1" for="coo-star-1">1</label>
+                            <input [(ngModel)]="feedback.coostar" type="radio" name="coo-star" class="star-2" id="coo-star-2" value=2 #coostar="ngModel"/>
+                            <label class="star-2" for="coo-star-2">2</label>
+                            <input [(ngModel)]="feedback.coostar" type="radio" name="coo-star" class="star-3" id="coo-star-3" value=3 #coostar="ngModel"/>
+                            <label class="star-3" for="coo-star-3">3</label>
+                            <input [(ngModel)]="feedback.coostar" type="radio" name="coo-star" class="star-4" id="coo-star-4" value=4 #coostar="ngModel"/>
+                            <label class="star-4" for="coo-star-4">4</label>
+                            <input [(ngModel)]="feedback.coostar" type="radio" name="coo-star" class="star-5" id="coo-star-5" value=5 #coostar="ngModel"/>
+                            <label class="star-5" for="coo-star-5">5</label>
+                            <span></span>
+                           </div>
+                         </td>   
+                       </tr>
+                       <tr>
+                          <td><label for="small" class="form-label">Creativity</label></td>     
+                          <td><div class="stars">
+                              <input [(ngModel)]="feedback.crestar" type="radio" name="cre-star" class="star-1" id="cre-star-1" value=1 #crestar="ngModel"/>
+                              <label class="star-1" for="cre-star-1">1</label>
+                              <input [(ngModel)]="feedback.crestar" type="radio" name="cre-star" class="star-2" id="cre-star-2" value=2 #crestar="ngModel"/>
+                              <label class="star-2" for="cre-star-2">2</label>
+                              <input [(ngModel)]="feedback.crestar"  type="radio" name="cre-star" class="star-3" id="cre-star-3" value=3 #crestar="ngModel"/>
+                              <label class="star-3" for="cre-star-3">3</label>
+                              <input [(ngModel)]="feedback.crestar"  type="radio" name="cre-star" class="star-4" id="cre-star-4" value=4 #crestar="ngModel" />
+                              <label class="star-4" for="cre-star-4">4</label>
+                              <input [(ngModel)]="feedback.crestar"  type="radio" name="cre-star" class="star-5" id="cre-star-5" value=5 #crestar="ngModel"/>
+                              <label class="star-5" for="cre-star-5">5</label>
+                              <span></span>
+                             </div>
+                           </td>   
+                         </tr>
+                         <tr>
+                            <td><label for="small" class="form-label">Takes Initiative</label></td>     
+                            <td><div class="stars">
+                                <input [(ngModel)]="feedback.takstar"  type="radio" name="tak-star" class="star-1" id="tak-star-1" value=1 #takstar="ngModel"/>
+                                <label class="star-1" for="tak-star-1">1</label>
+                                <input [(ngModel)]="feedback.takstar"  type="radio" name="tak-star" class="star-2" id="tak-star-2" value=2 #takstar="ngModel"/>
+                                <label class="star-2" for="tak-star-2">2</label>
+                                <input [(ngModel)]="feedback.takstar"  type="radio" name="tak-star" class="star-3" id="tak-star-3" value=3 #takstar="ngModel"/>
+                                <label class="star-3" for="tak-star-3">3</label>
+                                <input [(ngModel)]="feedback.takstar"  type="radio" name="tak-star" class="star-4" id="tak-star-4" value=4 #takstar="ngModel"/>
+                                <label class="star-4" for="tak-star-4">4</label>
+                                <input [(ngModel)]="feedback.takstar"  type="radio" name="tak-star" class="star-5" id="tak-star-5" value=5 #takstar="ngModel" />
+                                <label class="star-5" for="tak-star-5">5</label>
+                                <span></span>
+                               </div>
+                             </td>   
+                           </tr>
+                           <tr>
+                              <td><label for="small" class="form-label">Coworking Relation</label></td>     
+                              <td><div class="stars">
+                                  <input [(ngModel)]="feedback.cowstar"  type="radio" name="cow-star" class="star-1" id="cow-star-1" value=1 #cowstar="ngModel"/>
+                                  <label class="star-1" for="cow-star-1">1</label>
+                                  <input [(ngModel)]="feedback.cowstar" type="radio" name="cow-star" class="star-2" id="cow-star-2" value=2 #cowstar="ngModel"/>
+                                  <label class="star-2" for="cow-star-2">2</label>
+                                  <input [(ngModel)]="feedback.cowstar" type="radio" name="cow-star" class="star-3" id="cow-star-3" value=3 #cowstar="ngModel"/>
+                                  <label class="star-3" for="cow-star-3">3</label>
+                                  <input [(ngModel)]="feedback.cowstar" type="radio" name="cow-star" class="star-4" id="cow-star-4" value=4 #cowstar="ngModel"/>
+                                  <label class="star-4" for="cow-star-4">4</label>
+                                  <input [(ngModel)]="feedback.cowstar" type="radio" name="cow-star" class="star-5" id="cow-star-5" value=5 #cowstar="ngModel"/>
+                                  <label class="star-5" for="cow-star-5">5</label>
+                                  <span></span>
+                                 </div>
+                               </td>   
+  
+                             </tr>
+                             <tr>
+                                <td><label for="small" class="form-label">Dependability</label></td>     
+                                <td><div class="stars">
+                                    <input [(ngModel)]="feedback.depstar" type="radio" name="dep-star" class="star-1" id="dep-dep-star-1" value=1 #depstar="ngModel"/>
+                                    <label class="star-1" for="dep-star-1">1</label>
+                                    <input [(ngModel)]="feedback.depstar"  type="radio" name="dep-star" class="star-2" id="dep-star-2" value=2 #depstar="ngModel"/>
+                                    <label class="star-2" for="dep-star-2">2</label>
+                                    <input [(ngModel)]="feedback.depstar"  type="radio" name="dep-star" class="star-3" id="dep-star-3" value=3 #depstar="ngModel"/>
+                                    <label class="star-3" for="dep-star-3">3</label>
+                                    <input [(ngModel)]="feedback.depstar"  type="radio" name="dep-star" class="star-4" id="dep-star-4" value=4 #depstar="ngModel" />
+                                    <label class="star-4" for="dep-star-4">4</label>
+                                    <input [(ngModel)]="feedback.depstar"  type="radio" name="dep-star" class="star-5" id="dep-star-5" value=5 #depstar="ngModel"/>
+                                    <label class="star-5" for="dep-star-5">5</label>
+                                    <span></span>
+                                   </div>
+                                 </td>   
+                               </tr>
+          </table>
+       
+          <div class="form-group" [class.has-success]="comment.valid"
+          [class.has-error]="comment.invalid && Title.touched">
+          <label for="comment" class="control-label">Comment</label>
+          <input required pattern="^[^-\s][a-zA-Z_\s-]{3,20}$" id="comment" name="comment"
+            [(ngModel)]="feedback.comment" type="text" class="form-control" #comment="ngModel">
+          <span class="help-block" *ngIf="!!comment.errors?.required && !!comment.touched">
+            Title is required
+          </span>
+         
+        </div>
+
+        <div class="text-center">
+          <button width="50%" height="25%" type="submit" [disabled]="feedback.invalid"  class="btn btn-custom">
+            SUBMIT
+          </button><br /><br />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+

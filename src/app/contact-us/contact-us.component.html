@@ -1,0 +1,23 @@
+<div class="contact">
+  <div class="half1">
+    <img src="assets/images/contact.jpeg" width="500px" height="500px">
+  </div>
+  <div class="half2" width="500px" height="500px">
+    <form #contactForm="ngForm" (ngSubmit)="saveContact(contact)" novalidate>
+      <p class="text">GET IN TOUCH</p><br/>
+      <div class="form-group">
+          <input required id="Name" name="Name" placeholder="Name" [(ngModel)]="contact.Name" type="text" class="form-control" #Name="ngModel">
+      </div>
+      <div class="form-group">
+          <input required id="_Email" name="_Email" placeholder="Email" [(ngModel)]="contact._Email" type="text" class="form-control" #_Email="ngModel">
+      </div>
+      <div class="form-group">
+          <input required id="Subject" name="Subject" placeholder="Subject" [(ngModel)]="contact.Subject" type="text" class="form-control" #Subject="ngModel">
+      </div>
+      <div class="form-group">
+          <textarea required id="Message" name="Message" placeholder="Message" [(ngModel)]="contact.Message" type="text" class="form-control" #Message="ngModel"></textarea>
+      </div><br/>
+      <button [disabled]="contactForm.invalid" mat-raised-button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

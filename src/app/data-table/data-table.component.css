@@ -1,0 +1,25 @@
+.greenClass{
+  color: green;
+}
+.redClass{
+  color: red;
+}
+th{
+  font-family: "Carter One"; 
+  font-size: 18px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 190; 
+  line-height: 26.4px;
+  background-color:#21618C;
+  color: white;
+  text-align: center !important; 
+}
+table{
+  -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 40px; /* Firefox */
+  column-gap: 40px
+}
+td{
+  text-align: center !important; 
+}
