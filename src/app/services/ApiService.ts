@@ -15,6 +15,7 @@ import { ClearedLeaves } from '../modals/clearedLeaves';
 import { PendingLeaves } from '../modals/pendingLeaves';
 import { BehaviorSubject } from 'rxjs';
 import{Feedback} from '../modals/feedback'
+import{FillFeedback}from '../modals/fillFeedback'
 import{EditProject}from '../modals/EditProject'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -203,7 +204,7 @@ getDesignation(): Observable<any> {
 
                 return throwError(errorMessage);
             }
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.error.Message}`;
+            errorMessage = `Error Code: ${error.status}`;
         }
 
 
@@ -252,6 +253,11 @@ getDesignation(): Observable<any> {
             catchError(this.handleError));
     }
 
+    empdetails(): Observable<any> {
+        const url = environment.apiBaseUrl + '/hackathon/api/DevelopersEmail';
+        return this.httpclient.get(url).pipe(
+            catchError(this.handleError));
+    }
     getTeam(team): Observable<any> {
         const url = environment.apiBaseUrl + '/hackathon/api/GetProjectMembers/'+ team
         return this.httpclient.get(url).pipe(
@@ -349,6 +355,14 @@ getDesignation(): Observable<any> {
         }
 
         return throwError(errorMessage);
+    }
+    
+    // Function definition to implement post method to save Employee Registration in the Database
+   
+    saveFeedback(feedback: FillFeedback): Observable<any> {
+        const url = environment.apiBaseUrl + '/Hackathon/api/GivePeerFeedback';
+        return this.httpclient.post(url, feedback).pipe(
+            catchError(this.handleError));
     }
     // Function to save Project Team Members
     saveProjectdata(data) {

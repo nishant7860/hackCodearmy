@@ -80,7 +80,8 @@ import{ToasterService} from './toster-service.service';
 import { ApplyLeaveComponentComponent } from './apply-leave-component/apply-leave-component.component';
 import { GivefeedbackComponent } from './home-emp/givefeedback/givefeedback.component';
 import { HoomePmComponent } from './hoome-pm/hoome-pm.component';
-import { CreateFeedbackComponent } from './hoome-pm/create-feedback/create-feedback.component'
+import { CreateFeedbackComponent } from './hoome-pm/create-feedback/create-feedback.component';
+import { ViewFeedbackComponent } from './home-emp/view-feedback/view-feedback.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +110,7 @@ import { CreateFeedbackComponent } from './hoome-pm/create-feedback/create-feedb
     GivefeedbackComponent,
     HoomePmComponent,
     CreateFeedbackComponent,
+    ViewFeedbackComponent,
   ],
   imports: [
     BrowserModule,

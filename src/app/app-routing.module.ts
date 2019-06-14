@@ -18,6 +18,7 @@ import {DisplayHolidayListComponent} from './display-holiday-list/display-holida
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import { HoomePmComponent } from './hoome-pm/hoome-pm.component';
 import{GivefeedbackComponent} from '../app/home-emp/givefeedback/givefeedback.component'
+import {ViewFeedbackComponent} from './home-emp/view-feedback/view-feedback.component'
 import{ApplyLeaveComponentComponent}from './apply-leave-component/apply-leave-component.component'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent,canActivate: [HomeGuard]},
   { path: 'home-pm/createfeedback', component: CreateFeedbackComponent},
   { path: 'feedback', component: GivefeedbackComponent},
+  { path: 'view-feedback', component: ViewFeedbackComponent},
  
   { path: 'home-hr', component: HomeHrComponent, canActivate: [AuthGuard]},
   { path: 'home-emp', component: HomeEmpComponent, canActivate: [AuthGuard]},

@@ -220,7 +220,7 @@
           <mat-form-field class="example-full-width">
             <label for="email" class="control-label">Select employee</label>
             <mat-select name="employee" [(ngModel)]="feedback.employee" class="form-control">
-              <mat-option *ngFor="let email of listEmail" [value]="email.Email" (click)="focusOut(email)">
+              <mat-option *ngFor="let email of listEmail" [value]="email.Email" >
                 {{email.Email}}
               </mat-option>
             </mat-select>
