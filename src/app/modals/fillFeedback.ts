@@ -14,5 +14,6 @@ export class FillFeedback{
     depstar:number;
     comment:string;
     employee:string;
+    sender:string;
 
 }
