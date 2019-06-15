@@ -372,6 +372,16 @@ getDesignation(): Observable<any> {
     sendProjectTeamMembers() {
         return this.listEmail1;
     }
+
+    getFeedbackDetails(email: string): Observable<any> {
+        const param1 = new HttpParams().set('email', email);
+        const url = environment.apiBaseUrl + '/Hackathon/api/GetPeerFeedbacks';
+        
+        return this.httpclient.get(url, {params:param1}).pipe(
+            catchError(this.handleError));
+    }
+
+
     // Function to implement Get method to Fetch Cleared Leaves from the Database
     GetClearedLeaves(): Observable<any> {
         const url = environment.apiBaseUrl + '/ProjectDataBase/api/ClearedLeaves';
